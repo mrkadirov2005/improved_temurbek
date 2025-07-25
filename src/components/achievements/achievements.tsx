@@ -1,4 +1,3 @@
-import React from 'react';
 import { FaUserFriends, FaGift, FaMedal, FaBullhorn } from 'react-icons/fa';
 
 const achievements = [
