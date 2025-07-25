@@ -1,4 +1,6 @@
 @import "tailwindcss";
 body{
   padding:0 30px;
+  min-width:100vw;
+  min-height:100vh;
 }

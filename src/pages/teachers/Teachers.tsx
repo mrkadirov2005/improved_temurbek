@@ -21,12 +21,12 @@ const teachers = [
 
 export default function Teachers() {
   return (
-    <section className="bg-white py-10 px-4">
+    <section className="bg-white py-10 px-4" id='teachers'>
       <h2 className="text-3xl font-bold text-blue-800 text-center mb-8">Bizning ustozlar</h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
         {teachers.map((teacher, index) => (
-          <div key={index} className="bg-blue-50 shadow-md rounded-xl overflow-hidden hover:shadow-xl transition-shadow duration-300">
+          <div key={index} className="bg-blue-50   overflow-hidden hover:shadow-xl  max-w-sm mx-auto shadow-md rounded-xl  transform transition-all duration-300  hover:scale-[1.02] border border-gray-200 hover:border-blue-500">
             <img
               src={teacher.image}
               alt={teacher.name}

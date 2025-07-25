@@ -72,7 +72,7 @@ const CourseComponent: React.FC = () => {
           <div
             key={course.id}
             onClick={() => handleSelectCourse(course)}
-            className="border border-blue-200 relative rounded-lg p-5 pb-0 bg-blue-50  text-blue-900 shadow hover:shadow-lg transition-shadow duration-200 cursor-pointer"
+            className="border border-blue-200 relative rounded-lg p-5 hover:animate-bounce  pb-0 bg-blue-50  text-blue-900 shadow hover:shadow-lg transition-shadow duration-200 cursor-pointer"
           >
             <h2 className="text-xl font-semibold mb-2">{course.nomi}</h2>
             <p className="mb-1"><strong>Ta'rif:</strong> {course.tarif}</p>
@@ -85,7 +85,7 @@ const CourseComponent: React.FC = () => {
       </div>
 
       {searchOption && (
-        <div className="bg-white pt-7 rounded-sm pl-4 pr-4 z-50 overflow-y-auto right-0 top-0 w-full max-w-md h-screen fixed shadow-lg border-l border-blue-200">
+        <div className="bg-white pt-7 rounded-sm pl-4 pr-4 z-50 overflow-y-auto py-5 right-0 top-0 w-full max-w-md h-screen fixed shadow-lg border-l border-blue-200">
           <Button variant="contained" color="warning" onClick={() => setSearchOption(null)}>
             X
           </Button>
@@ -115,7 +115,7 @@ const CourseComponent: React.FC = () => {
           )}
 
           {course && (
-            <div className="bg-white pt-7 rounded-sm pl-4 pr-4 mt-6">
+            <div className="bg-white pt-7 rounded-sm pl-4 pr-4 mt-6 ">
               <h2 className="text-2xl text-blue-900 font-semibold mb-3">{course.level.toUpperCase()}</h2>
               <p className="text-lg font-medium mb-2 text-blue-700">{course.target}</p>
               <p className="mb-3 text-sm text-gray-700">{course.description}</p>

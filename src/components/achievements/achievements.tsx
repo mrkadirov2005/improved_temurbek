@@ -14,8 +14,8 @@ const achievements = [
   },
   {
     icon: <FaMedal className="text-3xl text-blue-500" />,
-    title: 'Top',
-    subtitle: 'IELTS Scorers',
+    title: 'IELTS Scorers ',
+    subtitle: '30+',
   },
   {
     icon: <FaBullhorn className="text-3xl text-blue-500" />,
@@ -26,7 +26,7 @@ const achievements = [
 
 const AchievementsSection = () => {
   return (
-    <section className="py-16 bg-white text-center">
+    <section className="py-16 bg-white text-center" id='results'>
       <h2 className="text-2xl font-semibold mb-10">Our Achievements</h2>
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6 px-4 md:px-16">

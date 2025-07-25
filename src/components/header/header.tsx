@@ -7,7 +7,7 @@ const HeaderS = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="eduvision-header flex flex-col md:flex-row items-center justify-between px-4 sm:px-6 md:px-8 py-4 shadow-2xl !shadow-gray-800">
+    <header className="  z-20  eduvision-header flex flex-col md:flex-row items-center justify-between px-4 sm:px-6 md:px-8 py-4 shadow-2xl !shadow-gray-800">
       {/* Logo and Mobile Toggle */}
       <div className="w-full md:w-auto flex items-center justify-between">
         <img src="/logo.png" className="w-[60px] sm:w-[70px] md:w-[80px]" alt="Logo" />
@@ -34,10 +34,10 @@ const HeaderS = () => {
       <div className={`${menuOpen ? 'flex' : 'hidden'} w-full md:w-auto md:flex flex-col md:flex-row items-center gap-6 mt-4 md:mt-0`}>
         {/* Nav Links */}
         <nav className="flex flex-col md:flex-row items-center gap-4 md:gap-6">
-          <Link to="/" className="text-sm sm:text-base hover:text-blue-600 transition-colors">Asosiy</Link>
-          <Link to="/courses" className="text-sm sm:text-base hover:text-blue-600 transition-colors">Kurslar</Link>
-          <Link to="/teachers" className="text-sm sm:text-base hover:text-blue-600 transition-colors">Ustozlar</Link>
-          <Link to="/results" className="text-sm sm:text-base hover:text-blue-600 transition-colors">Natijalar</Link>
+          <a href="/#main" className="text-sm sm:text-base hover:text-blue-600 transition-colors">Asosiy</a>
+          <a href="/courses" className="text-sm sm:text-base hover:text-blue-600 transition-colors">Kurslar</a>
+          <a href="/#teachers" className="text-sm sm:text-base hover:text-blue-600 transition-colors">Ustozlar</a>
+          <a href="/#results" className="text-sm sm:text-base hover:text-blue-600 transition-colors">Natijalar</a>
         </nav>
 
         {/* Buttons */}
