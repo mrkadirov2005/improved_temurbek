@@ -1,4 +1,3 @@
-import React from 'react';
 
 const teachers = [
   { name: 'Shahobov Temurbek', role: 'Asoschi', image: '/teachers/shakhobov.jpg' },

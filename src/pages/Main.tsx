@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Video_info from '../components/video_bg/video_info';
 import AchievementsSection from '../components/achievements/achievements';
 import CourseComponent from './Courses/page';
