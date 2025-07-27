@@ -6,7 +6,7 @@ export default function Video_info() {
       {/* Background Video */}
       <video
         src="/bg_video.mp4"
-        className="absolute top-0 left-0 w-full h-full object-cover opacity-30"
+        className="absolute top-0 left-0 w-full h-full object-cover opacity-50"
         autoPlay
         muted
         loop

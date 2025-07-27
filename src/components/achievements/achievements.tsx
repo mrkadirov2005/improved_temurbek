@@ -26,7 +26,7 @@ const achievements = [
 const AchievementsSection = () => {
   return (
     <section className="py-16 bg-white text-center" id='results'>
-      <h2 className="text-2xl font-semibold mb-10">Our Achievements</h2>
+      <h2 className="text-2xl font-semibold mb-10">Bizning natijalar</h2>
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6 px-4 md:px-16">
         {achievements.map((item, index) => (
