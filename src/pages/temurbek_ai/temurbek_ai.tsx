@@ -57,44 +57,46 @@ const TemurbekAI: React.FC = () => {
   };
 messages.map((msg)=>console.log(msg.sender))
   return (
-    <div className="max-w-2xl mx-auto p-4 bg-white min-h-screen">
-      <h1 className="text-3xl font-bold text-center text-blue-600 mb-6">🤖 Temurbek AI</h1>
+    <div className="max-w-screen w-full mx-auto p-4 bg-white min-h-screen">
+  <h1 className="text-3xl font-bold text-center text-blue-600 mb-6">🤖 Temurbek AI</h1>
 
-      <div className="border rounded-lg p-4 bg-gray-100 h-[60vh] overflow-y-auto shadow-inner">
-        {messages.map((msg, index) => (
-          <div key={index} className={`mb-3 ${msg.sender === "user" ? "text-right" : "text-left"}`}>
-            <span
-              className={`inline-block px-4 py-2 rounded-xl max-w-[80%] break-words ${
-                msg.sender === "user"
-                  ? "bg-blue-500 text-white"
-                  : "bg-gray-300 text-black"
-              }`}
-            >
-                {loading?<h1>Loading...</h1>:''}
-              {msg.text}
-            </span>
-          </div>
-        ))}
-        {loading && <p className="text-gray-500 italic">Temurbek AI is thinking...</p>}
-      </div>
-
-      <div className="mt-4 flex gap-2">
-        <input
-          type="text"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          placeholder="Ask something..."
-          className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-          onKeyDown={(e) => e.key === "Enter" && sendMessage()}
-        />
-        <button
-          onClick={sendMessage}
-          className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"
+  <div className="border rounded-lg p-4 bg-blue-200 h-[60vh] max-w-[400px] w-full sm:w-[90%] mx-auto overflow-y-auto shadow-inner">
+    <h1 className="text-center">TEMURBEK AI xizmatiga xush kelibsiz ✅</h1>
+    {messages.map((msg, index) => (
+      <div key={index} className={`mb-3 ${msg.sender === "user" ? "text-right" : "text-left"}`}>
+        <span
+          className={`inline-block px-4 py-2 rounded-xl max-w-[80%] break-words ${
+            msg.sender === "user"
+              ? "bg-blue-500 text-white"
+              : "bg-gray-300 text-black"
+          }`}
         >
-          Savolni  yuborish
-        </button>
+          {loading ? <h1>Loading...</h1> : ""}
+          {msg.text}
+        </span>
       </div>
-    </div>
+    ))}
+    {loading && <p className="text-gray-500 italic">Temurbek AI is thinking...</p>}
+  </div>
+
+  <div className="mt-4 max-w-[400px] w-full sm:w-[90%] mx-auto flex gap-2">
+    <input
+      type="text"
+      value={input}
+      onChange={(e) => setInput(e.target.value)}
+      placeholder="Savolingizni yozing..."
+      className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+      onKeyDown={(e) => e.key === "Enter" && sendMessage()}
+    />
+    <button
+      onClick={sendMessage}
+      className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition whitespace-nowrap"
+    >
+      Yuborish
+    </button>
+  </div>
+</div>
+
   );
 };
 
