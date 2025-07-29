@@ -48,10 +48,10 @@ const HeaderS = () => {
         >
           {/* Navigation */}
           <nav className="flex flex-col md:flex-row items-center gap-4 md:gap-6 text-gray-700 font-medium">
-            <a href="/#main" className="header_link hover:text-blue-600 transition">Asosiy</a>
+            <Link to="/main" className="header_link hover:text-blue-600 transition">Asosiy</Link>
             <Link to="/courses" className="header_link hover:text-blue-600 transition">Kurslar</Link>
-            <a href="/teachers" className="header_link hover:text-blue-600 transition">Ustozlar</a>
-            <a href="/results" className="header_link hover:text-blue-600 transition">Natijalar</a>
+            <Link to="/teachers" className="header_link hover:text-blue-600 transition">Ustozlar</Link>
+            <Link to="/results" className="header_link hover:text-blue-600 transition">Natijalar</Link>
             <Link to="/test" className="header_link hover:text-blue-600 transition">Sinov</Link>
             <Link to="/temurbek_ai" className="header_link hover:text-blue-600 transition">Temurbek AI</Link>
           </nav>
