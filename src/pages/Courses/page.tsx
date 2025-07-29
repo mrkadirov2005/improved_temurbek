@@ -373,6 +373,7 @@ const subCourses= {
   }
   
 import { Button } from "@mui/material";
+import { Link } from "react-router-dom";
 
 // Define Course Type
 interface Course {
@@ -503,7 +504,7 @@ const CourseComponent: React.FC = () => {
                   📜 {cert}
                 </p>
               ))}
-              <a href="/contact">
+              <Link to="/contact">
                 <Button
                   variant="contained"
                   color="primary"
@@ -512,7 +513,7 @@ const CourseComponent: React.FC = () => {
                 >
                   Aloqaga Chiqish
                 </Button>
-              </a>
+              </Link>
             </div>
           )}
         </div>
