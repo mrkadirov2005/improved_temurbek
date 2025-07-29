@@ -48,7 +48,7 @@ const HeaderS = () => {
         >
           {/* Navigation */}
           <nav className="flex flex-col md:flex-row items-center gap-4 md:gap-6 text-gray-700 font-medium">
-            <Link to="/main" className="header_link hover:text-blue-600 transition">Asosiy</Link>
+            <Link to="/" className="header_link hover:text-blue-600 transition">Asosiy</Link>
             <Link to="/courses" className="header_link hover:text-blue-600 transition">Kurslar</Link>
             <Link to="/teachers" className="header_link hover:text-blue-600 transition">Ustozlar</Link>
             <Link to="/results" className="header_link hover:text-blue-600 transition">Natijalar</Link>
