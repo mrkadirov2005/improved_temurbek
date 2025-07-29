@@ -14,7 +14,7 @@ export default function Main() {
 
   if (loading) {
     return (
-      <div className="fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-r from-blue-400 via-sky-500 to-cyan-400">
+      <div className="fixed inset-0 z-50 w-[100vw] h-[100vh] !bg-[url('/modal_bg.png')] !bg-no-repeat  !bg-cover flex items-center justify-center bg-gradient-to-r from-blue-400 via-sky-500 to-cyan-400">
         <div className="relative w-40 h-40">
           {/* Spinning Ring */}
           <div className="absolute inset-0 border-8 border-t-white border-b-transparent border-l-white border-r-transparent rounded-full animate-spin-slow" />
@@ -42,8 +42,8 @@ export default function Main() {
      <a href="/contact"> <button className='fixed right-0 text-3xl hover:text-7xl hover:opacity-100 bg-blue-500 z-20 p-5 rounded-full rounded-br-2xl bottom-5 opacity-40'>📞</button></a>
       <Video_info />
       <AchievementsSection />
-      <h1 className="text-center text-xl sm:text-2xl md:text-3xl lg:text-4xl bg-blue-400 py-4 px-2 font-semibold text-white">
-        Bizning sizga taklif qiladigan kurslarimiz ✅
+      <h1 className="text-center rounded-4xl max-w-[700px] my-8 mx-auto text-xl sm:text-2xl md:text-3xl lg:text-4xl bg-blue-400 py-4 px-2 font-semibold text-white">
+       Kurslarimiz bilan tanishing
       </h1>
       <CourseComponent />
       <Teachers />

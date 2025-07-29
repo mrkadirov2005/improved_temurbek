@@ -50,13 +50,13 @@ const CourseComponent: React.FC = () => {
   };
 
   return (
-    <section className="flex flex-col w-full items-start justify-start   min-h-screen p-5">
-      <h1 className="text-3xl font-bold text-blue-800 mb-5">Kurslar</h1>
+    <section className="flex flex-col rounded-4xl w-full items-start justify-start min-h-screen p-10 my-10 bg-gradient-to-b from-[#fdfcfb] via-[#02cceb] to-[#f5f7fa]">
+      <h1 className="text-4xl font-bold text-blue-700 mb-8">📘 Kurslar</h1>
 
-      <div className="mb-5">
+      <div className="mb-8">
         <select
           onChange={filterCourses}
-          className="w-60 p-2 border border-blue-300 bg-white text-blue-800 rounded-md shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+          className="w-60 p-3 border border-blue-300 bg-blue-50 hover:bg-blue-100 text-blue-800 font-medium rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-200"
         >
           <option value=" ">--Kursni tanlang--</option>
           {coursesData.kurslar.map((course) => (
@@ -72,24 +72,27 @@ const CourseComponent: React.FC = () => {
           <div
             key={course.id}
             onClick={() => handleSelectCourse(course)}
-            className="border border-blue-200 relative rounded-lg p-5 hover:animate-bounce  pb-0 bg-blue-50  text-blue-900 shadow hover:shadow-lg transition-shadow duration-200 cursor-pointer"
+            className="relative rounded-xl p-5 pb-0 bg-blue-50 text-blue-900 border border-blue-100 shadow-md hover:shadow-2xl hover:bg-white transform hover:scale-[1.02] transition-all duration-300 ease-in-out cursor-pointer"
           >
             <h2 className="text-xl font-semibold mb-2">{course.nomi}</h2>
             <p className="mb-1"><strong>Ta'rif:</strong> {course.tarif}</p>
             <p className="mb-1"><strong>Darajalar:</strong> {course.darajalar.join(", ")}</p>
             <p className="mb-1"><strong>Davomiyligi:</strong> {course.davomiyligi}</p>
             <p className="mb-1"><strong>Xususiyatlar:</strong> {course.xususiyatlar.join(", ")}</p>
-            <div className="bg-blue-600 bottom-0 w-full left-0 text-white text-center rounded-bl-lg rounded-br-lg absolute">Temurbek School</div>
+            <div className="bg-blue-600 bottom-0 w-full left-0 text-white text-center rounded-bl-lg rounded-br-lg absolute py-2">
+              Temurbek School
+            </div>
           </div>
         ))}
       </div>
 
+      {/* Side Drawer */}
       {searchOption && (
-        <div className="bg-white pt-7 rounded-sm pl-4 pr-4 z-50 overflow-y-auto py-5 right-0 top-0 w-full max-w-md h-screen fixed shadow-lg border-l border-blue-200">
+        <div className="bg-white pt-7 rounded-sm pl-4 pr-4 z-50 overflow-y-auto py-5 right-0 top-0 w-full max-w-md h-screen fixed shadow-2xl border-l border-blue-200 transition-all">
           <Button variant="contained" color="warning" onClick={() => setSearchOption(null)}>
             X
           </Button>
-          <h2 className="text-2xl text-blue-900 font-semibold mb-3">{searchOption.tarif}</h2>
+          <h2 className="text-2xl text-blue-900 font-semibold mt-4 mb-3">{searchOption.tarif}</h2>
           <p className="text-lg font-medium mb-2 text-blue-700">{searchOption.darajalar.join(", ")}</p>
           <p className="mb-3 text-sm text-gray-700">{searchOption.xususiyatlar.join(", ")}</p>
           <p className="text-gray-600 mb-3">
@@ -101,7 +104,7 @@ const CourseComponent: React.FC = () => {
               {searchId.map((item) => (
                 <Button
                   onClick={() => setCourse(item)}
-                  className="w-full"
+                  className="w-full hover:scale-105 transition-transform duration-300"
                   color="primary"
                   variant="contained"
                   key={item.level}
@@ -111,11 +114,11 @@ const CourseComponent: React.FC = () => {
               ))}
             </div>
           ) : (
-            <p className="text-gray-600">Malumot topilmadi</p>
+            <p className="text-gray-600">Ma'lumot topilmadi</p>
           )}
 
           {course && (
-            <div className="bg-white pt-7 rounded-sm pl-4 pr-4 mt-6 ">
+            <div className="bg-white pt-7 rounded-sm pl-4 pr-4 mt-6">
               <h2 className="text-2xl text-blue-900 font-semibold mb-3">{course.level.toUpperCase()}</h2>
               <p className="text-lg font-medium mb-2 text-blue-700">{course.target}</p>
               <p className="mb-3 text-sm text-gray-700">{course.description}</p>
@@ -126,12 +129,17 @@ const CourseComponent: React.FC = () => {
                 <strong>Narxi:</strong> {course.price.toLocaleString()} so'm
               </p>
               {course.certificate.split("/").map((cert, index) => (
-                <p key={index} className="font-semibold rounded-md text-white bg-blue-600 p-2 m-2">
-                  {cert}
+                <p key={index} className="font-semibold rounded-md text-white bg-blue-600 p-2 my-2">
+                  📜 {cert}
                 </p>
               ))}
               <a href="/contact">
-                <Button variant="contained" color="primary" onClick={handleLeaveRequest}>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={handleLeaveRequest}
+                  className="mt-4"
+                >
                   Aloqaga Chiqish
                 </Button>
               </a>

@@ -20,16 +20,17 @@ const teachers = [
 
 export default function Teachers() {
   return (
-    <section className="bg-white py-10 px-4" id='teachers'>
+    <section className=" bg-blue-100 rounded-4xl shadow-2xl shadow-blue-700 mb-10 py-10 px-4" id='teachers'>
       <h2 className="text-3xl font-bold text-blue-800 text-center mb-8">Bizning ustozlar</h2>
-
+<hr className="bg-blue-600 shadow-2xl shadow-blue-700 text-blue-900 m-5"></hr>
+<hr className="bg-blue-600 text-blue-900 m-5"></hr>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
         {teachers.map((teacher, index) => (
           <div key={index} className="bg-blue-50  aoverflow-hidden hover:shadow-xl  max-w-sm mx-auto shadow-md rounded-xl  transform transition-all duration-300  hover:scale-[1.02] border border-gray-200 hover:border-blue-500">
             <img
               src={teacher.image}
               alt={teacher.name}
-              className="w-full ctive:w-[100vw]  active:h-[100vh]  h-100 object-cover"
+              className="w-full ctive:w-[100vw]  rounded-xl active:h-[100vh]  h-100 object-cover"
             />
             <div className="p-4 text-center">
               <h3 className="text-xl font-semibold text-blue-800">{teacher.name}</h3>

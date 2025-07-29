@@ -30,7 +30,7 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="max-w-2xl mx-auto bg-white shadow-xl rounded-xl my-44 p-8 mt-10">
+    <div className="max-w-2xl mx-auto !bg-white shadow-xl rounded-xl my-44 p-8 mt-10">
       <h2 className="text-2xl font-bold mb-6 text-center text-blue-600">Biz bilan bog'laning</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>

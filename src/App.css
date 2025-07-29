@@ -1,13 +1,30 @@
 @import "tailwindcss";
+
 body{
   padding:0 30px;
   min-width:100vw;
   min-height:100vh;
+/* background: linear-gradient(135deg, #00BFFF, #8A2BE2); */
+/* background: linear-gradient(135deg, #FF512F, #DD2476); */
+background: linear-gradient(135deg,  #0575E6,#00F260);
+
+
+}
+main, main>section,main>div{
+  background: transparent !important;
+}
+
+header>div{
+  color:white !important;
 }
 
 @media only screen and (max-width: 600px) {
  body{
-  padding:0;
+  padding:0 !important;
+ }
+ header{
+  margin:20px;
+  margin-bottom:5px;
  }
 }
 footer>div>div{

@@ -1,0 +1,23 @@
+.header_link{
+padding:2px 10px;
+border-radius: 10px;
+}
+.header_link:hover{
+background-color: rgb(2, 217, 255);
+
+}
+.header_link{
+    box-shadow: 2px 2px 2px  rgb(6, 195, 198);
+}
+
+
+@media only screen and (max-width: 600px) {
+ .header_link{
+    width: 300px;
+    text-align: center;
+    border-radius: 10px;
+ }
+ .navnav{
+    border-radius: 15px;
+ }
+}
