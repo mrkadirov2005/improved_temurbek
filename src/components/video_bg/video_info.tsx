@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import Button from '../buttons/Button';
+import { Link } from 'react-router-dom';
 
 export default function Video_info() {
   return (
@@ -40,7 +41,7 @@ export default function Video_info() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.6, duration: 0.8 }}
         >
-          <a href="/contact"><Button data="Biz bilan bog'laning" /></a>
+          <Link to="/contact"><Button data="Biz bilan bog'laning" /></Link>
         </motion.div>
       </motion.div>
     </div>
