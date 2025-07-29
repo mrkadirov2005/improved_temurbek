@@ -20,7 +20,7 @@ const teachers = [
 
 export default function Teachers() {
   return (
-    <section className=" bg-blue-100 rounded-4xl shadow-2xl shadow-blue-700 mb-10 py-10 px-4" id='teachers'>
+    <section className=" bg-blue-100 rounded-4xl shadow-2xl shadow-blue-700 mb-10 py-10 px-0" id='teachers'>
       <h2 className="text-3xl font-bold text-blue-800 text-center mb-8">Bizning ustozlar</h2>
 <hr className="bg-blue-600 shadow-2xl shadow-blue-700 text-blue-900 m-5"></hr>
 <hr className="bg-blue-600 text-blue-900 m-5"></hr>

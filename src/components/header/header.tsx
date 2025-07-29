@@ -7,7 +7,7 @@ const HeaderS = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-white shadow-2xl rounded-4xl shadow-gray-200 px-4 sm:px-6 md:px-10 py-4 transition-all">
+    <header className="sticky  w-[90%] m-auto top-0 z-50 bg-white shadow-2xl rounded-4xl shadow-gray-200 px-4 sm:px-6 md:px-10 py-4 transition-all">
       <div className="flex items-center justify-between w-full">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2">
@@ -50,15 +50,15 @@ const HeaderS = () => {
           <nav className="flex flex-col md:flex-row items-center gap-4 md:gap-6 text-gray-700 font-medium">
             <a href="/#main" className="header_link hover:text-blue-600 transition">Asosiy</a>
             <Link to="/courses" className="header_link hover:text-blue-600 transition">Kurslar</Link>
-            <a href="#teachers" className="header_link hover:text-blue-600 transition">Ustozlar</a>
-            <a href="#results" className="header_link hover:text-blue-600 transition">Natijalar</a>
+            <a href="/teachers" className="header_link hover:text-blue-600 transition">Ustozlar</a>
+            <a href="/results" className="header_link hover:text-blue-600 transition">Natijalar</a>
             <Link to="/test" className="header_link hover:text-blue-600 transition">Sinov</Link>
             <Link to="/temurbek_ai" className="header_link hover:text-blue-600 transition">Temurbek AI</Link>
           </nav>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center gap-3 mt-4 md:mt-0">
-            <Button data="Bog'lanish" />
+            <Link to="/contact"><Button data="Bog'lanish" /></Link>
             <Link to="/courses">
               <Button data="Kursga yozilish" />
             </Link>

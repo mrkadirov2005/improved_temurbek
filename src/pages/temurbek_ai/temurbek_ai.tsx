@@ -55,7 +55,7 @@ const TemurbekAI: React.FC = () => {
       setLoading(false);
     }
   };
-
+messages.map((msg)=>console.log(msg.sender))
   return (
     <div className="max-w-2xl mx-auto p-4 bg-white min-h-screen">
       <h1 className="text-3xl font-bold text-center text-blue-600 mb-6">🤖 Temurbek AI</h1>
@@ -70,6 +70,7 @@ const TemurbekAI: React.FC = () => {
                   : "bg-gray-300 text-black"
               }`}
             >
+                {loading?<h1>Loading...</h1>:''}
               {msg.text}
             </span>
           </div>
@@ -90,7 +91,7 @@ const TemurbekAI: React.FC = () => {
           onClick={sendMessage}
           className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"
         >
-          Send
+          Savolni  yuborish
         </button>
       </div>
     </div>
