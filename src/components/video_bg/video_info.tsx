@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 export default function Video_info() {
   return (
-    <div className="relative rounded-4xl mt-10 w-full h-screen overflow-hidden opacity-80 bg-[url('/logo.png')]
+    <div className="relative rounded-4xl mt-10 w-full h-screen overflow-hidden opacity-80 bg-center  bg-[url('/logo.png')]
  ">
       {/* Background Video */}
       <video
