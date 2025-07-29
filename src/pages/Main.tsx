@@ -39,7 +39,7 @@ export default function Main() {
 
   return (
     <div className='relative'>
-      <button className='fixed right-0 text-3xl hover:text-7xl hover:opacity-100 bg-blue-500 z-20 p-5 rounded-full rounded-br-2xl bottom-5 opacity-40'>📞</button>
+     <a href="/contact"> <button className='fixed right-0 text-3xl hover:text-7xl hover:opacity-100 bg-blue-500 z-20 p-5 rounded-full rounded-br-2xl bottom-5 opacity-40'>📞</button></a>
       <Video_info />
       <AchievementsSection />
       <h1 className="text-center text-xl sm:text-2xl md:text-3xl lg:text-4xl bg-blue-400 py-4 px-2 font-semibold text-white">

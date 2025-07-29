@@ -3,9 +3,9 @@ export default function Footer() {
   return (
     <footer className="bg-white text-black w-full border-t border-gray-200">
       {/* Top Section */}
-      <div className="max-w-6xl mx-auto px-4 py-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+      <div className="max-w-6xl mx-auto  px-4 py-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
         {/* Logo */}
-        <div>
+        <div  className="">
           <div className="flex items-center space-x-2">
             <span className="text-2xl"><img src="/logo.png" width={100}></img></span>
             <span className="text-lg font-semibold">Temurbek School</span>
@@ -13,7 +13,7 @@ export default function Footer() {
         </div>
 
         {/* Learn more about us */}
-        <div>
+        <div className="">
           <h3 className="font-semibold mb-2">Biz haqimizda ko'proq ma'lumot</h3>
           <ul className="space-y-1 text-sm">
             <li><a href="#" className="hover:underline">Biz haqimizda</a></li>
@@ -24,7 +24,7 @@ export default function Footer() {
         </div>
 
         {/* Get assistance */}
-        <div>
+        <div className="">
           <h3 className="font-semibold mb-2">Yordam oling</h3>
           <ul className="space-y-1 text-sm">
             <li><a href="#" className="hover:underline">+998974088108</a></li>
@@ -34,7 +34,7 @@ export default function Footer() {
         </div>
 
         {/* Connect with us */}
-        <div>
+        <div className="">
           <h3 className="font-semibold mb-2">Natijalarimiz ✅</h3>
           <ul className="space-y-1 text-sm">
             <li><a href="#" className="hover:underline">IELTS</a></li>

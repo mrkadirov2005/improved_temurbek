@@ -37,6 +37,8 @@ const HeaderS = () => {
           <a href="/courses" className="text-sm sm:text-base hover:text-blue-600 transition-colors">Kurslar</a>
           <a href="/#teachers" className="text-sm sm:text-base hover:text-blue-600 transition-colors">Ustozlar</a>
           <a href="/#results" className="text-sm sm:text-base hover:text-blue-600 transition-colors">Natijalar</a>
+          <a href="/test" className="text-sm sm:text-base hover:text-blue-600 transition-colors">Sinov</a>
+          <a href="/temurbek_ai" className="text-sm sm:text-base hover:text-blue-600 transition-colors">Temurbek AI</a>
         </nav>
 
         {/* Buttons */}
