@@ -1,7 +1,377 @@
 "use client";
 import React, { useState } from "react";
-import coursesData from "./ctg.json";
-import subCourses from "./courses.json";
+const coursesData  ={
+    "kurslar": [
+    
+      {
+        "id":"1",
+        "nomi": "IELTS",
+        "tarif": "Xalqaro Ingliz Tili Test Tizimiga tayyorgarlik kursi.",
+        "darajalar": ["O'rta", "Yuqori"],
+        "davomiyligi": "1-6 oy",
+        "xususiyatlar": ["Amaliy testlar", "Yozish topshiriqlari", "Gapirish mashg'ulotlari", "Tinglash texnikasi"]
+      },
+      {
+        "id":"2",
+        "nomi": "CEFR",
+        "tarif": "Yevropa Tillari Umumiy Tavsifiga moslashtirilgan kurs.",
+        "darajalar": ["A1", "A2", "B1", "B2", "C1", "C2"],
+        "davomiyligi": "3-12 oy",
+        "xususiyatlar": ["Til bilimi", "Ko'nikmalarni baholash", "Imtihon tayyorlov"]
+      },
+      {
+        "id":"3",
+        "nomi": "TKT",
+        "tarif": "O'qituvchilar uchun Teaching Knowledge Test tayyorlov kursi.",
+        "darajalar": ["1-modul", "2-modul", "3-modul"],
+        "davomiyligi": "1-3 oy",
+        "xususiyatlar": ["O'qitish metodikasi", "Dars rejalash", "Sinfni boshqarish"]
+      },
+      {
+        "id":"4",
+        "nomi": "APTIS",
+        "tarif": "APTIS - bu tashkilotlar uchun moslashtirilgan va ishonchli ingliz tili baholash vositasi bo'lib, u British Council ekspertlari tomonidan ishlab chiqilgan.",
+        "darajalar": ["A1", "A2", "B1", "B2", "C"],
+        "davomiyligi": "1-3 oy",
+        "xususiyatlar": ["Test formatiga tayyorlanish", "O'qish va tinglash amaliyoti", "Yozish topshiriqlari", "Gapirish amaliyoti"]
+      },
+      {
+        "id":"5",
+        "nomi": "Multilevel",
+        "tarif": "Bir xil guruhdagi turli darajadagi talabalar uchun moslashtirilgan kurslar.",
+        "darajalar": ["Boshlang'ich", "O'rta", "Yuqori"],
+        "davomiyligi": "Moslashuvchan",
+        "xususiyatlar": ["Individual e'tibor", "Guruh mashg'ulotlari", "Ko'nikmalarni rivojlantirish"]
+      },
+      {
+        "id":"6",
+        "nomi": "Matematika kursi",
+        "tarif": "Matematika kursi muammolarni hal qilish va tushunchalarni egallashga qaratilgan.",
+        "darajalar": ["Asosiy", "O'rta", "Yuqori"],
+        "davomiyligi": "3-12 oy",
+        "xususiyatlar": ["Algebra", "Geometriya", "Hisoblash", "Imtihon tayyorlov"]
+      },
+      {
+        "id":"7",
+        "nomi": "Rus tili kurslari",
+        "tarif": "Rus tilini turli darajalarda o'rganish uchun kurslar.",
+        "darajalar": ["Boshlang'ich", "O'rta", "Yuqori"],
+        "davomiyligi": "3-12 oy",
+        "xususiyatlar": ["Grammatika", "Lug'at", "Gapirish amaliyoti", "Madaniy kontekst"]
+      },
+      {
+        "id":"8",
+        "nomi": "TOPIK asosidagi Koreys tili kurslari",
+        "tarif": "Koreys tilini bilish darajasini aniqlash testi (TOPIK) uchun tayyorgarlik kurslari.",
+        "darajalar": ["Boshlang'ich", "O'rta", "Yuqori"],
+        "davomiyligi": "3-12 oy",
+        "xususiyatlar": ["Grammatika", "Lug'at", "Tinglash", "O'qish", "Yozish"]
+      },
+      {
+        "id":"9",
+        "nomi": "Prezident maktabiga tayyorlov",
+        "tarif": "Prezident maktablariga kirish uchun keng qamrovli tayyorgarlik.",
+        "darajalar": ["Umumiy"],
+        "davomiyligi": "3-12 oy",
+        "xususiyatlar": ["Matematika", "Mantiq", "Fan", "Til ko'nikmalari"]
+      }
+    ]
+  }
+  ;
+const subCourses= {
+    "1": [
+      {
+          "level": "Pre-IELTS",
+          "course_length": "2-3",
+          "target": "IELTS uchun tayyorgarlikning boshlang'ich bosqichi",
+          "description": "Grammatik asoslarni mustahkamlash, so‘z boyligini oshirish va IELTS formatini tushunish uchun dastlabki tayyorgarlik.",
+          "price": 375,
+          "certificate": "Pre-IELTS kursini tugatganlik to'g'risida TEMURBEK SCHOOL tomonidan taqdim etiladigan sertifikat"
+      },
+      {
+          "level": "IELTS",
+          "course_length": "3-4",
+          "target": "IELTS imtihoni uchun to‘liq tayyorgarlik",
+          "description": "IELTS bo'yicha to'liq tayyorgarlik, shu jumladan barcha bo'limlar (Listening, Reading, Writing, Speaking) bo'yicha mashg'ulotlar.",
+          "price": 375,
+          "certificate": "IELTS tayyorgarlik kursini tugatganlik to'g'risida TEMURBEK SCHOOL tomonidan taqdim etiladigan sertifikat"
+      },
+      {
+          "level": "Master IELTS",
+          "course_length": "4-5",
+          "target": "IELTS 7+ natijasiga erishish uchun chuqur tayyorgarlik",
+          "description": "IELTS bo‘yicha yuqori natijalar olish uchun strategiyalar va intensiv mashg‘ulotlar.",
+          "price": 375,
+          "certificate": "Master IELTS kursini tugatganlik to'g'risida TEMURBEK SCHOOL tomonidan taqdim etiladigan sertifikat / IELTS 7+ sertifikat"
+      }
+    ],    
+    "2": [
+             {
+              "level": "Starter",
+              "course_length": "1.5-3",
+              "target": "Ingliz tiliga ilk qadam",
+              "description": "Ingliz tilining asosiy qismlarini, jumladan, oddiy so'z boyligi, grammatika va kundalik iboralarni o'rganish.",
+              "price": 250,
+              "certificate": "Imtihondan o'tganlik to'g'risida TEMURBEK SCHOOL tomonidan taqdim etiladigan sertifikat"
+            },
+      {
+          "level": "a1",
+          "course_length": "1.5-3",
+          "target": "Ingliz tiliga ilk qadam",
+          "description": "Ingliz tilining asosiy qismlarini, jumladan, oddiy so'z boyligi, grammatika va kundalik iboralarni o'rganish.",
+          "price": 260,
+          "certificate": "Imtihondan o'tganlik to'g'risida TEMURBEK SCHOOL tomonidan taqdim etiladigan sertifikat"
+      },
+       {
+          "level": "a2",
+          "course_length": "2-3",
+          "target": "Boshlang‘ich darajadagi ingliz tili",
+          "description": "Oddiy suhbatlar va kundalik vaziyatlarda ishlash qobiliyatini shakllantirish.",
+          "price": 270,
+          "certificate": "Imtihondan o'tganlik to'g'risida TEMURBEK SCHOOL tomonidan taqdim etiladigan sertifikat"
+      },
+      {
+        
+          "level": "a2+",
+          "course_length": "2-3.5",
+          "target": "Boshlang‘ich ko‘nikmalarni yaxshilash",
+          "description": "Grammatik va so‘z boyligini takomillashtirib, oddiy vaziyatlarda o‘zingizni aniq ifodalash.",
+          "price": 270,
+          "certificate": "Imtihondan o'tganlik to'g'risida TEMURBEK SCHOOL tomonidan taqdim etiladigan sertifikat"
+      },
+      {
+        
+          "level": "b1",
+          "course_length": "3-4",
+          "target": "O‘rta darajadagi muloqot ko‘nikmalari",
+          "description": "Tanish mavzularda gapirish, o‘qish va yozish bo‘yicha ishonch hosil qilish.",
+          "price": 300,
+          "certificate": "Imtihondan o'tganlik to'g'risida TEMURBEK SCHOOL tomonidan taqdim etiladigan sertifikat / Cambridge B1 sertifikat"
+      },
+      {
+          "level": "b2",
+          "course_length": "3.5-4.5",
+          "target": "O‘rta-yuqori darajadagi bilim",
+          "description": "Murakkab mavzularni muhokama qilish va batafsil matnlarni tushunish qobiliyatini oshirish.",
+          "price": 350,
+          "certificate": "Imtihondan o'tganlik to'g'risida TEMURBEK SCHOOL tomonidan taqdim etiladigan sertifikat / Cambridge B2 sertifikat / Multilevel B2 sertifikat / IELTS 6+"
+      },
+      {
+          "level": "c1",
+          "course_length": "4-5",
+          "target": "Ingliz tilida yuqori darajadagi bilim",
+          "description": "Ingliz tilida ravon gapirishga erishish, keng so‘z boyligi va nozik muloqot ko‘nikmalariga ega bo‘lish.",
+          "price": 375,
+          "certificate": "Imtihondan o'tganlik to'g'risida TEMURBEK SCHOOL tomonidan taqdim etiladigan sertifikat / Cambridge C1 sertifikat / Multilevel C1 sertifikat / IELTS 7+"
+      }
+    ],
+    
+    "3":[
+        {
+        "level": "TKT module-1",
+          "course_length": "1-3",
+          "target": "O'qitish metodikasiga doir bilimlarni egallash imkonini beradi.",
+          "description": "TKTdan o'zingizga kerakli darajaga erishishingizga yordam beriladi va kursni tugatib, sertifikatni qo'lga kiritishingiz mumkin.",
+          "price": 300,
+          "certificate": "TKT certificate"
+     
+        },
+        {
+            "level": "TKT module-2",
+              "course_length": "1-3",
+              "target": "O'qitish metodikasiga doir bilimlarni egallash imkonini beradi.",
+              "description": "TKTdan o'zingizga kerakli darajaga erishishingizga yordam beriladi va kursni tugatib, sertifikatni qo'lga kiritishingiz mumkin.",
+              "price": 300,
+              "certificate": "TKT certificate"
+         
+            },
+            {
+                "level": "TKT module-3",
+                  "course_length": "1-3",
+                  "target": "O'qitish metodikasiga doir bilimlarni egallash imkonini beradi.",
+                  "description": "TKTdan o'zingizga kerakli darajaga erishishingizga yordam beriladi va kursni tugatib, sertifikatni qo'lga kiritishingiz mumkin.",
+                  "price": 300,
+                  "certificate": "TKT certificate"
+             
+                }
+    ],
+    "4":[
+        {
+            "level": "a1",
+            "course_length": "1.5-3",
+            "target": "Ingliz tiliga ilk qadam",
+            "description": "Ingliz tilining asosiy qismlarini, jumladan, oddiy so'z boyligi, grammatika va kundalik iboralarni o'rganish.",
+            "price": 260,
+            "certificate": "Imtihondan o'tganlik to'g'risida TEMURBEK SCHOOL tomonidan taqdim etiladigan sertifikat"
+        },
+         {
+            "level": "a2",
+            "course_length": "2-3",
+            "target": "Boshlang‘ich darajadagi ingliz tili",
+            "description": "Oddiy suhbatlar va kundalik vaziyatlarda ishlash qobiliyatini shakllantirish.",
+            "price": 270,
+            "certificate": "Imtihondan o'tganlik to'g'risida TEMURBEK SCHOOL tomonidan taqdim etiladigan sertifikat"
+        },
+        {
+          
+            "level": "a2+",
+            "course_length": "2-3.5",
+            "target": "Boshlang‘ich ko‘nikmalarni yaxshilash",
+            "description": "Grammatik va so‘z boyligini takomillashtirib, oddiy vaziyatlarda o‘zingizni aniq ifodalash.",
+            "price": 270,
+            "certificate": "Imtihondan o'tganlik to'g'risida TEMURBEK SCHOOL tomonidan taqdim etiladigan sertifikat"
+        },
+        {
+          
+            "level": "b1",
+            "course_length": "3-4",
+            "target": "O‘rta darajadagi muloqot ko‘nikmalari",
+            "description": "Tanish mavzularda gapirish, o‘qish va yozish bo‘yicha ishonch hosil qilish.",
+            "price": 300,
+            "certificate": "Imtihondan o'tganlik to'g'risida TEMURBEK SCHOOL tomonidan taqdim etiladigan sertifikat / Cambridge B1 sertifikat"
+        },
+        {
+            "level": "b2",
+            "course_length": "3.5-4.5",
+            "target": "O‘rta-yuqori darajadagi bilim",
+            "description": "Murakkab mavzularni muhokama qilish va batafsil matnlarni tushunish qobiliyatini oshirish.",
+            "price": 350,
+            "certificate": "Imtihondan o'tganlik to'g'risida TEMURBEK SCHOOL tomonidan taqdim etiladigan sertifikat / Cambridge B2 sertifikat / Multilevel B2 sertifikat / IELTS 6+"
+        },
+        {
+            "level": "c1",
+            "course_length": "4-5",
+            "target": "Ingliz tilida yuqori darajadagi bilim",
+            "description": "Ingliz tilida ravon gapirishga erishish, keng so‘z boyligi va nozik muloqot ko‘nikmalariga ega bo‘lish.",
+            "price": 375,
+            "certificate": "Imtihondan o'tganlik to'g'risida TEMURBEK SCHOOL tomonidan taqdim etiladigan sertifikat / Cambridge C1 sertifikat / Multilevel C1 sertifikat / IELTS 7+"
+        }
+    ],
+    "5":[
+        {
+          
+            "level": "Boshlang'ich",
+            "course_length": "3-4",
+            "target": "Boshlangich darajadagi muloqot ko‘nikmalari",
+            "description": "Tanish mavzularda gapirish, o‘qish va yozish bo‘yicha ishonch hosil qilish.",
+            "price": 300,
+            "certificate": "Imtihondan o'tganlik to'g'risida TEMURBEK SCHOOL tomonidan taqdim etiladigan sertifikat / Cambridge B1 sertifikat"
+        },
+        {
+            "level": "O'rta",
+            "course_length": "3.5-4.5",
+            "target": "O‘rta-yuqori darajadagi bilim",
+            "description": "Murakkab mavzularni muhokama qilish va batafsil matnlarni tushunish qobiliyatini oshirish.",
+            "price": 350,
+            "certificate": "Imtihondan o'tganlik to'g'risida TEMURBEK SCHOOL tomonidan taqdim etiladigan sertifikat / Cambridge B2 sertifikat / Multilevel B2 sertifikat / IELTS 6+"
+        },
+        {
+            "level": "Yuqori bosqich",
+            "course_length": "4-5",
+            "target": "Ingliz tilida yuqori darajadagi bilim",
+            "description": "Ingliz tilida ravon gapirishga erishish, keng so‘z boyligi va nozik muloqot ko‘nikmalariga ega bo‘lish.",
+            "price": 375,
+            "certificate": "Imtihondan o'tganlik to'g'risida TEMURBEK SCHOOL tomonidan taqdim etiladigan sertifikat / Cambridge C1 sertifikat / Multilevel C1 sertifikat / IELTS 7+"
+        }
+    ],
+    "6": [
+      {
+          "level": "Boshlang'ich",
+          "course_length": "1-3",
+          "target": "Matematikaning asosiy ko'nikmalarini o'rganish",
+          "description": "Oddiy arifmetika, asosiy algebra va kundalik matematik muammolarni yechish.",
+          "price": 200,
+          "certificate": "Matematika boshlang'ich kursini tugatganlik to'g'risida sertifikat"
+      },
+      {
+          "level": "O'rta",
+          "course_length": "2-4",
+          "target": "O‘rta darajadagi matematik bilimlarni rivojlantirish",
+          "description": "Geometriya, algebra, tenglamalar va murakkabroq masalalarni hal qilish ko'nikmalari.",
+          "price": 300,
+          "certificate": "Matematika o'rta daraja kursini tugatganlik to'g'risida sertifikat"
+      },
+      {
+          "level": "Oliy",
+          "course_length": "3-5",
+          "target": "Matematikaning ilg‘or mavzulari bo‘yicha tajriba",
+          "description": "Chuqur algebra, trigonometriya va matematik tahlil bo‘yicha bilimlar.",
+          "price": 400,
+          "certificate": "Matematika ilg'or daraja kursini tugatganlik to'g'risida sertifikat"
+      }
+    ],
+    "7": [
+      {
+          "level": "A1",
+          "course_length": "2-3",
+          "target": "Rus tiliga ilk qadam",
+          "description": "Oddiy so‘z boyligi va kundalik iboralarni o‘rganish.",
+          "price": 200,
+          "certificate": "Rus tili A1 darajasini tugatganlik to'g'risida sertifikat"
+      },
+      {
+          "level": "A2",
+          "course_length": "2.5-3.5",
+          "target": "Boshlang‘ich darajadagi rus tili",
+          "description": "Taniqli mavzularda gapirish va oddiy matnlarni tushunishni rivojlantirish.",
+          "price": 250,
+          "certificate": "Rus tili A2 darajasini tugatganlik to'g'risida sertifikat"
+      },
+      {
+          "level": "B1",
+          "course_length": "3-4",
+          "target": "O‘rta darajadagi muloqot ko‘nikmalari",
+          "description": "O‘qish, yozish va murakkabroq mavzularda muloqot qilish.",
+          "price": 300,
+          "certificate": "Rus tili B1 darajasini tugatganlik to'g'risida sertifikat"
+      },
+      {
+        "level": "B2",
+        "course_length": "3-4",
+        "target": "O‘rta-yuqori darajadagi muloqot ko‘nikmalari",
+        "description": "O‘qish, yozish va murakkabroq mavzularda muloqot qilish.",
+        "price": 300,
+        "certificate": "Rus tili B1 darajasini tugatganlik to'g'risida sertifikat"
+    }
+    ],
+    "8": [
+      {
+          "level": "TOPIK I",
+          "course_length": "2-4",
+          "target": "Koreys tilining boshlang‘ich darajasini o‘rganish",
+          "description": "So‘z boyligi va oddiy iboralarni o‘rganish.",
+          "price": 250,
+          "certificate": "TOPIK I kursini tugatganlik to'g'risida sertifikat"
+      },
+      {
+          "level": "TOPIK II",
+          "course_length": "4-6",
+          "target": "Koreys tilining ilg‘or darajasini o‘rganish",
+          "description": "Murakkab mavzular va til ko‘nikmalarini rivojlantirish.",
+          "price": 400,
+          "certificate": "TOPIK II kursini tugatganlik to'g'risida sertifikat"
+      },
+      {
+          "level": "TOPIK III",
+          "course_length": "4-6",
+          "target": "Koreys tilining ilg‘or darajasini o‘rganish",
+          "description": "Murakkab mavzular va til ko‘nikmalarini rivojlantirish.",
+          "price": 400,
+          "certificate": "TOPIK II kursini tugatganlik to'g'risida sertifikat"
+      }
+    ],
+    "9":[
+        {
+            "level":"Prezident Maktabi",
+            "course_length":"4-6",
+            "target":"Prezident",
+            "description":"Ushbu intensivlashtirilgan kursda, siz Prezident maktablariga samarali tashkillashtirilgan jadval asosida ta'lim olasiz.",
+            "price":300,
+            "certificate":"Prezident maktabiga tayyorlov kursini to'liq tugatganlik haqidagi sertifikat va Prezident maktabiga imtohon topshirish natijasi."
+        }
+    ]
+  }
+  
 import { Button } from "@mui/material";
 
 // Define Course Type
