@@ -8,7 +8,7 @@ export default function Footer() {
         {/* Logo + Brand */}
         <div>
           <div className="flex items-center space-x-3">
-            <img src="/logo.png" width={60} alt="Temurbek School Logo" className="rounded-xl shadow-md" />
+            <img src="/TS_logo.png" width={60} alt="Temurbek School Logo" className="rounded-xl shadow-md" />
             <span className="text-xl font-bold tracking-wide">Temurbek School</span>
           </div>
           <p className="text-sm mt-4 text-gray-200">Ilmli avlod uchun zamonaviy ta'lim markazi.</p>

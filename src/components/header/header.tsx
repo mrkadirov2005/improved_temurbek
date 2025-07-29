@@ -10,8 +10,8 @@ const HeaderS = () => {
       <div className="flex items-center justify-between w-full">
         {/* Logo */}
         <a href="/" className="flex items-center gap-2">
-          <img src="/logo.png" alt="Logo" className="w-[50px] sm:w-[60px] md:w-[70px]" />
-          <span className="text-xl sm:text-2xl font-bold text-blue-600">EduVision</span>
+          <img src="/TS_logo.png" alt="Logo" className="w-[50px] sm:w-[60px] md:w-[70px]" />
+          <span className="text-xl sm:text-2xl font-bold text-blue-600">TEMURBEK SCHOOL</span>
         </a>
 
         {/* Mobile Menu Toggle */}
