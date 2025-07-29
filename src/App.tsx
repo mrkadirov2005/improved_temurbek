@@ -11,6 +11,7 @@ import { useState } from 'react'
 import TestPage from './pages/test copy/page'
 import Teachers from './pages/teachers/Teachers'
 import Results from './pages/results/Results'
+import NotFound from './pages/notfound/notfound'
 
 function App() {
   const [modal, setIsModal]=useState<boolean>(true)
@@ -32,6 +33,8 @@ function App() {
       <Route path="/test" element={<TestPage/>}></Route>
       <Route path="/teachers" element={<Teachers/>}></Route>
       <Route path="/results" element={<Results/>}></Route>
+      <Route path="/*" element={<NotFound/>}></Route>
+
 
 
     </Routes>
