@@ -420,7 +420,7 @@ const CourseComponent: React.FC = () => {
   };
 
   return (
-    <section className="flex flex-col rounded-4xl w-full items-start justify-start min-h-screen p-10 my-10 bg-gradient-to-b from-[#fdfcfb] via-[#02cceb] to-[#f5f7fa]">
+    <section className="flex flex-col rounded-4xl w-full items-start justify-start min-h-screen p-10 my-10 bg-gradient-to-b from-[#fdfcfb] via-[#02cceb] to-[#f5f7fa]" id="courses" >
       <h1 className="text-4xl font-bold text-blue-700 mb-8">📘 Kurslar</h1>
 
       <div className="mb-8">
