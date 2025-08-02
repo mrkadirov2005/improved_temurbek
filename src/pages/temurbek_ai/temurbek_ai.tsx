@@ -55,48 +55,66 @@ const TemurbekAI: React.FC = () => {
       setLoading(false);
     }
   };
-messages.map((msg)=>console.log(msg.sender))
+
   return (
     <div className="max-w-screen w-full mx-auto p-4 bg-white min-h-screen">
-  <h1 className="text-3xl font-bold text-center text-blue-600 mb-6">🤖 Temurbek AI</h1>
+      <h1 className="text-3xl font-bold text-center text-blue-600 mb-6">
+        🤖 Temurbek AI
+      </h1>
 
-  <div className="border rounded-lg p-4 bg-blue-200 h-[60vh] max-w-[400px] w-full sm:w-[90%] mx-auto overflow-y-auto shadow-inner">
-    <h1 className="text-center">TEMURBEK AI xizmatiga xush kelibsiz ✅</h1>
-    {messages.map((msg, index) => (
-      <div key={index} className={`mb-3 ${msg.sender === "user" ? "text-right" : "text-left"}`}>
-        <span
-          className={`inline-block px-4 py-2 rounded-xl max-w-[80%] break-words ${
-            msg.sender === "user"
-              ? "bg-blue-500 text-white"
-              : "bg-gray-300 text-black"
-          }`}
-        >
-          {loading ? <h1>Loading...</h1> : ""}
-          {msg.text}
-        </span>
+      <div
+        className="border rounded-lg p-4 bg-[url('/AI.png')] max-w-[800px] w-full sm:w-[90%] mx-auto overflow-auto shadow-inner"
+        style={{
+          height: "60vh",
+          resize: "both",
+          minHeight: "200px",
+          minWidth: "300px",
+          maxHeight: "90vh",
+          maxWidth: "100%",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+        }}
+      >
+        <h1 className="text-center mb-4">TEMURBEK AI xizmatiga xush kelibsiz ✅</h1>
+        {messages.map((msg, index) => (
+          <div
+            key={index}
+            className={`mb-3 ${msg.sender === "user" ? "text-right" : "text-left"}`}
+          >
+            <span
+              className={`inline-block px-4 py-2 rounded-xl max-w-[80%] break-words ${
+                msg.sender === "user"
+                  ? "bg-blue-500 text-white"
+                  : "bg-gray-300 text-black"
+              }`}
+            >
+              {loading && msg.sender === "ai" ? <em>Loading...</em> : msg.text}
+            </span>
+          </div>
+        ))}
+        {loading && <p className="text-gray-500 italic">Temurbek AI is thinking...</p>}
       </div>
-    ))}
-    {loading && <p className="text-gray-500 italic">Temurbek AI is thinking...</p>}
-  </div>
 
-  <div className="mt-4 max-w-[400px] w-full sm:w-[90%] mx-auto flex gap-2">
-    <input
-      type="text"
-      value={input}
-      onChange={(e) => setInput(e.target.value)}
-      placeholder="Savolingizni yozing..."
-      className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-      onKeyDown={(e) => e.key === "Enter" && sendMessage()}
-    />
-    <button
-      onClick={sendMessage}
-      className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition whitespace-nowrap"
-    >
-      Yuborish
-    </button>
-  </div>
-</div>
-
+      <div className="mt-4 max-w-[400px] w-full sm:w-[90%] mx-auto flex flex-wrap gap-2">
+        <input
+          type="text"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          placeholder="Savolingizni yozing..."
+          className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+          onKeyDown={(e) => e.key === "Enter" && sendMessage()}
+          disabled={loading}
+        />
+        <button
+          onClick={sendMessage}
+          className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition whitespace-nowrap"
+          disabled={loading}
+        >
+          Yuborish
+        </button>
+      </div>
+    </div>
   );
 };
 
