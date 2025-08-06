@@ -23,14 +23,40 @@ export default function ContactForm() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log('Form data:', formData);
-    // Submit to API or Google Sheets logic here
-  };
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+
+  try {
+     await fetch('https://script.google.com/macros/s/AKfycbx09SRA9pH-1GDU809UsKNX8LUxFp_bXxhjlmk5EVpclOLOgcqOXBIcc5bpeNRZsTDnYg/exec', {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    });
+
+    console.log('Submitted to Google Sheets:', formData);
+    alert("Ma'lumotlar muvaffaqiyatli yuborildi!");
+
+    // Optionally reset the form
+    setFormData({
+      ism: '',
+      familiya: '',
+      kurs: '',
+      yosh: '',
+      maktab: '',
+      telefon: ''
+    });
+  } catch (error) {
+    console.error('Xatolik:', error);
+    alert('Xatolik yuz berdi. Qayta urinib ko‘ring.');
+  }
+};
+
 
   return (
-    <div className="max-w-2xl mx-auto !bg-white shadow-xl rounded-xl my-44 p-8 mt-10">
+    <div className="max-w-[500px]  w-full mx-auto !bg-white shadow-xl rounded-xl my-44 p-8 mt-10">
       <h2 className="text-2xl font-bold mb-6 text-center text-blue-600">Biz bilan bog'laning</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
