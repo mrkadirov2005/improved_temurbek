@@ -8,7 +8,6 @@ interface MemberCertificateProps {
 }
 
 export default function MemberCertificate({ toggleCertificate }: MemberCertificateProps) {
-  const [isDownload, setIsDownload] = useState(false);
   const [isDataFilled, setIsDataFilled] = useState(false);
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
@@ -45,11 +44,9 @@ export default function MemberCertificate({ toggleCertificate }: MemberCertifica
   };
 
   const generateImageDownload = () => {
-    setIsDownload(true);
     const element = certificateRef.current;
     if (!element) return;
 
-    setTimeout(() => setIsDownload(false), 1000);
 
     html2canvas(element, {
       scale: 3,
