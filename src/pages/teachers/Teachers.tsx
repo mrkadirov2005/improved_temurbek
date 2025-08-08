@@ -14,7 +14,7 @@ const teachers = [
   { name: 'Farzona', role: 'Ustoz', image: '/teachers/farzona.jpg' },
   { name: 'Shohjahon', role: 'Ustoz', image: '/teachers/shohjahon.jpg' },
   { name: 'Muhammad', role: 'Ustoz', image: '/teachers/muhammad.jpg' },
-  { name: 'Ramziddin', role: 'Ustoz', image: '/teachers/ramziddin.jpg' },
+  { name: 'Ramziddin', role: 'Ustoz', image: '/teachers/ramziddin_fayziyev_support.jpg' },
   { name: 'Anvar', role: 'Ustoz', image: '/teachers/anvar_jalolov.jpg' },
 ];
 
