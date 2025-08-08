@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
+import { Button } from "@mui/material";
 
 interface Message {
   sender: "user" | "ai";
@@ -10,18 +11,31 @@ const TemurbekAI: React.FC = () => {
   const [input, setInput] = useState<string>("");
   const [messages, setMessages] = useState<Message[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
-  const inputRef = useRef<HTMLInputElement>(null); // Ref for input
+  const inputRef = useRef<HTMLInputElement>(null);
+  const [isSpeak,setIsSpeak]=useState<boolean>(false)
 
-  const apiKey = "AIzaSyB5a9ZQSUfrTrp0cK6Pg5Y5uKawcr9NG5g"; // Replace with your Gemini API key
+  const apiKey = "AIzaSyB5a9ZQSUfrTrp0cK6Pg5Y5uKawcr9NG5g"; // Your Gemini API key
 
-  // Focus input on mount and keep it focused
+  // Focus the input continuously
   useEffect(() => {
     const focusInterval = setInterval(() => {
       inputRef.current?.focus();
     }, 200);
-
-    return () => clearInterval(focusInterval); // Clean up on unmount
+    return () => clearInterval(focusInterval);
   }, []);
+
+  // Optional: preload voices
+  useEffect(() => {
+    speechSynthesis.getVoices();
+  }, []);
+
+  // Text-to-speech helper
+  const speakText = (text: string) => {
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = "uz-UZ"; // Change to "en-US" or other if needed
+    utterance.rate = 1;
+    speechSynthesis.speak(utterance);
+  };
 
   const sendMessage = async () => {
     if (!input.trim()) return;
@@ -35,11 +49,7 @@ const TemurbekAI: React.FC = () => {
       const response = await axios.post(
         "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent",
         {
-          contents: [
-            {
-              parts: [{ text: input }],
-            },
-          ],
+          contents: [{ parts: [{ text: input }] }],
         },
         {
           headers: {
@@ -55,6 +65,9 @@ const TemurbekAI: React.FC = () => {
 
       const aiMessage: Message = { sender: "ai", text: aiText };
       setMessages((prev) => [...prev, aiMessage]);
+
+      // Speak the AI's response
+      isSpeak? speakText(aiText):"";
     } catch (error) {
       console.error("Error fetching AI response:", error);
       setMessages((prev) => [
@@ -86,7 +99,10 @@ const TemurbekAI: React.FC = () => {
           backgroundSize: "cover",
         }}
       >
-        <h1 className="text-center mb-4">TEMURBEK AI xizmatiga xush kelibsiz ✅</h1>
+        <h1 className="text-center mb-4">
+          TEMURBEK AI xizmatiga xush kelibsiz ✅
+        </h1>
+        <Button color="success" variant="contained" onClick={()=>setIsSpeak(!isSpeak)}>{isSpeak?"Ovozli yordamchini o'chirish":"Ovozli yordamchini yoqish"}</Button>
         {messages.map((msg, index) => (
           <div
             key={index}
@@ -104,15 +120,14 @@ const TemurbekAI: React.FC = () => {
               ) : (
                 msg.text
                   .split("**")
-                  .map((item, i) => (
-                    <p key={i}>{item}</p>
-                   
-                  ))
+                  .map((item, i) => <p key={i}>{item}</p>)
               )}
             </span>
           </div>
         ))}
-        {loading && <p className="text-gray-500 italic">Temurbek AI is thinking...</p>}
+        {loading && (
+          <p className="text-gray-500 italic">Temurbek AI is thinking...</p>
+        )}
       </div>
 
       <div className="mt-4 max-w-[400px] w-full sm:w-[90%] mx-auto flex flex-wrap gap-2">
