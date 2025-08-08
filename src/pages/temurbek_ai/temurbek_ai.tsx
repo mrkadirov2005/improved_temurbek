@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 
 interface Message {
@@ -10,8 +10,18 @@ const TemurbekAI: React.FC = () => {
   const [input, setInput] = useState<string>("");
   const [messages, setMessages] = useState<Message[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
+  const inputRef = useRef<HTMLInputElement>(null); // Ref for input
 
   const apiKey = "AIzaSyB5a9ZQSUfrTrp0cK6Pg5Y5uKawcr9NG5g"; // Replace with your Gemini API key
+
+  // Focus input on mount and keep it focused
+  useEffect(() => {
+    const focusInterval = setInterval(() => {
+      inputRef.current?.focus();
+    }, 200);
+
+    return () => clearInterval(focusInterval); // Clean up on unmount
+  }, []);
 
   const sendMessage = async () => {
     if (!input.trim()) return;
@@ -89,7 +99,16 @@ const TemurbekAI: React.FC = () => {
                   : "bg-gray-300 text-black"
               }`}
             >
-              {loading && msg.sender === "ai" ? <em>Loading...</em> : msg.text}
+              {loading && msg.sender === "ai" ? (
+                <em>Loading...</em>
+              ) : (
+                msg.text
+                  .split("**")
+                  .map((item, i) => (
+                    <p key={i}>{item}</p>
+                   
+                  ))
+              )}
             </span>
           </div>
         ))}
@@ -98,6 +117,7 @@ const TemurbekAI: React.FC = () => {
 
       <div className="mt-4 max-w-[400px] w-full sm:w-[90%] mx-auto flex flex-wrap gap-2">
         <input
+          ref={inputRef}
           type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
